@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicXamarin.Home">
+    <ContentPage.Resources>
+
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#D0D0D0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </ContentPage.Resources>
+    
+    <ScrollView>
+
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+            <!--TODOS-->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="TODOS" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumes" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumes_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0">
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+                                            
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+
+            <!---Electrónica-->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="ELECTRÓNICA" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumesElectronica" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumesElectronica_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0">
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+            
+            
+            <!--BALADA-->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="BALADA" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumesBalada" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumesBalada_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0">
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+            
+            
+
+
+           <!--ROCK-->
+
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="ROCK" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumesRock" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumesRock_SelectionChanged" >
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0">
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+            
+            <!--VALLENATO-->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="VALLENATO" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumesVallenato" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumesVallenato_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0">
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+            
+            <!--SALSA-->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Label Text="SALSA" FontAttributes="Bold" FontSize="16">
+
+                </Label>
+
+                <CollectionView x:Name="CLAlbumesSalsa" HeightRequest="320" SelectionMode="Single"
+                                SelectionChanged="CLAlbumesSalsa_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" >
+
+                        </LinearItemsLayout>
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <StackLayout>
+                                <!--   <Label Text="{Binding NombreGenero}" FontAttributes="Bold" FontSize="16">
+
+                                </Label> -->
+
+                                <StackLayout HorizontalOptions="Start" Spacing="0" >
+
+                                    <Frame CornerRadius="10" HeightRequest="275" WidthRequest="180" Margin="5" BackgroundColor="#2A1612">
+
+                                        <StackLayout HorizontalOptions="Start">
+
+                                            <Image HeightRequest="150" WidthRequest="150"
+                                                   Source="{Binding Etiqueta}">
+
+                                            </Image>
+                                            <Label Text="{Binding Nombre}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Label Text="{Binding NombreArtista}" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+
+                                            <Label Text="{Binding Precio, StringFormat='{0:F2} $'}" FontAttributes="Bold" FontSize="14" TextColor="White">
+
+                                            </Label>
+
+                                            <Grid VerticalOptions="Center" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Color="White" CheckedChanged="CheckBox_CheckedChanged" 
+                                                          IsChecked="True" IsVisible="{Binding Agregado}" IsEnabled="False"/>
+                                                <Label Grid.Row="0" Grid.Column="1" Text="Agregado" TextColor="White" VerticalOptions="Center" IsVisible="{Binding Agregado}"/>
+
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+            </StackLayout>
+
+
+            
+
+
+        </StackLayout>
+        
+        
+        
+        
+
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicXamarin.Views.PistasListPage"
+             Title="Pistas">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+
+                <Button Text="AGREGAR CD PARA COMPRAR" CornerRadius="30" WidthRequest="120" x:Name="BtnAgregar" VerticalOptions="FillAndExpand"
+                                BackgroundColor="Green" Margin="10" TextColor="White" Clicked="BtnAgregar_Clicked" ></Button>
+                
+                <ListView x:Name="lstPistas" Margin="20" >
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+
+
+                            <ViewCell>
+
+                                <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+
+                                    
+                                    <Label Text="{Binding NumeroPista}" WidthRequest="40"></Label>
+                                    <Label Text="{Binding Nombre}" WidthRequest="250"></Label>
+                                    <Label Text="{Binding Duracion}" WidthRequest="40"></Label>
+
+                                </StackLayout>
+
+                              
+
+                            </ViewCell>
+                            
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                    
+                    
+
+                </ListView>
+
+                
+                  
+          
+
+            </StackLayout>
+
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
